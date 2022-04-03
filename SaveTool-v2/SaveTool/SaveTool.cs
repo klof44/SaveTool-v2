@@ -151,7 +151,27 @@ namespace SaveRecovery
 			this.ChallengeDataPanel.Controls.Add(this._challengeDataControl);
 			this._challengeDataControl.ValueChanged += this.ChallengeData_Changed;
 			this.ProfilesDropdown.SelectedItem = this.ProfilesDropdown.Items[0];
+
+
+			if (Resolution.current != Options.LocalData.windowedResolution)
+            {
+				LastRes = Resolution.current;
+				Resolution.Set(Options.LocalData.windowedResolution);
+				WasNotWindowed = true;
+            }
+
+            AppDomain.CurrentDomain.ProcessExit += Closed;
 		}
+        private static bool WasNotWindowed = false;
+		private static Resolution LastRes;
+
+        private void Closed(object sender, EventArgs e)
+        {
+            if (WasNotWindowed)
+            {
+				Resolution.Set(LastRes);
+            }
+        }
 
 		private void ProfilesDropdown_SelectedIndexChanged(object sender, EventArgs e)
 		{
