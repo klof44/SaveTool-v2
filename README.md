@@ -6,6 +6,7 @@ A tool for editing Duck Game saves
 [The original SaveTool can be found here](SaveTool-Original/) (this repo) [or here](http://www.wonthelp.info/DuckGame_SaveTool.zip) (original link)  
   
 Please note that the original SaveTool is old and crashes often. 
+Please create an issue in GitHub if you find a crash. 
   
 This tool is intended for people who have lost their saves so that they can recover them
 ## How to use
